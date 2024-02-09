@@ -9,7 +9,7 @@ import {
 } from "../common"
 import { useState, useEffect } from "react";
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { ListTop20Tracks } from "../components/ListTop20Tracks";
+import { Top20TracksPage } from "./Top20TracksPage";
 
 export function ArtistInfo({ artist, onBack }) {
     const [isSeeingTop20, setIsSeeing] = useState(false)
@@ -98,7 +98,7 @@ export function ArtistInfo({ artist, onBack }) {
                     </div>
                 </>
             ) : <>
-                <ListTop20Tracks artist={artist} onBack={() => setIsSeeing(false)} />
+                <Top20TracksPage artist={artist} onBack={() => setIsSeeing(false)} />
             </>}
         </div>
     )

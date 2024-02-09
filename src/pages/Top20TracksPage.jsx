@@ -7,12 +7,12 @@ import {
 } from "../common";
 import history from "../assets/data/history.json";
 import { useState } from "react";
-import { ReactComponent as Logo } from '../assets/images/logo.svg';
 import { Footer } from "../components/Footer.jsx";
 import { ListTop20Tracks } from '../components/ListTop20Tracks.jsx';
 
-export function Top20TracksPage({artist}){
+export function Top20TracksPage({artist, onBack}){
     const [topTracksArtist, setTopTracksArtist] = useState(getTopSongsArtist(artist))
+
     const handleChangeTrackArtistQuery = (functionKey) => {
         setTopTracksArtist(undefined)
 
@@ -37,8 +37,11 @@ export function Top20TracksPage({artist}){
     return (
         <div className="h-screen">
         <div className="flex flex-col justify-between">
-            <Logo className="w-12 h-12 mt-6 mb-4 self-center" />
-            <ListTop20Tracks artist={artist} handleChangeTrackQuery={ handleChangeTrackArtistQuery } data={topTracksArtist}/>
+            <ListTop20Tracks 
+                artist={artist} 
+                handleChangeTrackArtistQuery={handleChangeTrackArtistQuery} 
+                data={topTracksArtist} 
+                onBackButton={onBack}/>
         </div>
         <Footer bgToChange={"artists"}/>
     </div>

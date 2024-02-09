@@ -6,6 +6,10 @@ import { motion } from "framer-motion";
 
 const timeRanges = [
     {
+        label: "Always",
+        value: "always"
+    },
+    {
         label: "4 Weeks",
         value: "4-weeks"
     },
@@ -16,15 +20,11 @@ const timeRanges = [
     {
         label: "Last Year",
         value: "last-year",
-    },
-    {
-        label: "Always",
-        value: "always"
-    },
+    }
 ]
 
 
-export function ListTop20Tracks({ artist, onBack, handleChangeTrackQuery, data }) {
+export function ListTop20Tracks({ artist, onBackButton, handleChangeTrackArtistQuery, data }) {
     const [activeButton, setActiveButton] = useState()
 
     if (data === undefined) {
@@ -34,7 +34,7 @@ export function ListTop20Tracks({ artist, onBack, handleChangeTrackQuery, data }
                     {timeRanges.map(({ label, value }) => (
                         <button className={`text-sm pb-1 ${activeButton === value ? 'border-b' : 'text-white'}`} onClick={() => {
                             setActiveButton(value)
-                            handleChangeTrackQuery(value)
+                            handleChangeTrackArtistQuery(value)
                         }}>{label}</button>
                     ))}
                 </div>
@@ -53,19 +53,19 @@ export function ListTop20Tracks({ artist, onBack, handleChangeTrackQuery, data }
                 {timeRanges.map(({ label, value }) => (
                     <button className={`text-sm pb-1 ${activeButton === value ? 'border-b' : 'text-white'}`} onClick={() => {
                         setActiveButton(value)
-                        handleChangeTrackQuery(value)
+                        handleChangeTrackArtistQuery(value)
                     }}>{label}</button>
                 ))}
             </div>
-            <div className="flex items-center my-7 mx-5 gap-10">
-                <button onClick={onBack}>
+            <div className="flex items-center mt-7 mx-5 gap-16">
+                <button onClick={onBackButton}>
                     <MdOutlineKeyboardArrowLeft className="h-10 w-10" />
                 </button>
                 <div className="flex flex-col">
                     <h1 className="text-3xl text-center">Top #20</h1>
-                    <h1 className="text-2xl text-center mt-2">{artist}</h1>
                 </div>
             </div>
+            <h1 className="text-2xl text-center mb-7">{artist}</h1>
             <div className="flex flex-col gap-4 pb-10">
                 {data.map((e, i) => (
                     <motion.div
