@@ -66,7 +66,7 @@ export function ListTop20Tracks({ artist, onBackButton, handleChangeTrackArtistQ
                 </div>
             </div>
             <h1 className="text-2xl text-center mb-7">{artist}</h1>
-            <div className="flex flex-col gap-4 pb-10">
+            <div className="flex flex-col gap-4 pb-32">
                 {data.map((e, i) => (
                     <motion.div
                     initial={{

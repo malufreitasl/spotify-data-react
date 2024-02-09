@@ -56,7 +56,7 @@ export function ListTopTracks({ handleChangeTrackQuery, data }) {
                 ))} 
             </div>
             <h1 className="text-3xl text-center my-8">Top #100 Tracks</h1>
-            <div className="flex flex-col gap-4 pb-20">
+            <div className="flex flex-col gap-4 pb-32">
             {data.map((e, i) => (
                     <motion.div
                         initial={{
@@ -74,7 +74,7 @@ export function ListTopTracks({ handleChangeTrackQuery, data }) {
                             delay: i * 0.07
                         }} 
                         key={i} 
-                        className="flex mx-5 py-4  bg-[#252133] rounded-lg">
+                        className="flex mx-5 py-4 bg-[#252133] rounded-lg">
                         {(i + 1) < 10 ? <p className="text-pink-secondary text-5xl font-bold pl-7 pr-9 self-center">{i + 1}</p> : <p className="text-[#E600F8] text-5xl self-center font-bold pl-4 pr-5">{i + 1}</p>}
                         <div className="flex flex-col gap-1 w-screen">
                             <p className="text-xl pr-4 text-white-terciary">{e[0]}</p>

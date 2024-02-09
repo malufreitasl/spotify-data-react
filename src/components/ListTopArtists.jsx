@@ -56,7 +56,7 @@ export function ListTopArtists({ onSelectArtist, handleChangeArtistQuery, data }
                 ))}
             </div>
             <h1 className="text-3xl text-center my-8">Top #100 Artists</h1>
-            <div className="flex flex-col gap-4 pb-20">
+            <div className="flex flex-col gap-4 pb-32">
                 {data.map((e, i) => (
                     <motion.div
                         initial={{
